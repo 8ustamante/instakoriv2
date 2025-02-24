@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --bg-body: #000000;
+  --color-1: #3c3d37;
+  --color-2: #202220;
+  --color-3: #ecdfcc;
+  --text: #ffffff;
+  --tomato: #ff6347;
+}
+
+* {
+  font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+body {
+  /* background: #000000; */
+  color: var(--text);
+  background-color: #000000;
+  background-image: url(../img/vecteezy_abstract-black-and-gray-triangles-in-seamless-pattern_6644111.svg);
+  background-repeat: no-repeat;
+}
+
+header {
+  padding-top: 1rem;
+}
+
+h1 {
+  font-size: 1.3rem;
+  color: var(--text);
+}
+
+.link {
+  text-decoration: underline;
+  color: var(--text);
+}
+
+.account-private {
+  text-align: center;
+}
+
+.account-private .bxs-lock {
+  font-size: 3rem;
+  text-align: center;
+}
+
+.no-dates {
+  text-align: center;
+}
+
+.no-dates .bx-confused {
+  font-size: 3rem;
+  text-align: center;
+}
+
+.hide {
+  display: none !important;
+}
+
+.show {
+  display: block !important;
+}
+
+.profile-info img {
+  border-radius: 100%;
+  border: 3px solid #ffffff;
+  width: 120px;
+}
+
+.text-decs {
+  font-size: 1rem;
+}
+
+.card {
+  width: 18rem;
+  padding: 0;
+  border: 3px solid #ffffff;
+}
+
+.historias-contain {
+  position: relative;
+}
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+}

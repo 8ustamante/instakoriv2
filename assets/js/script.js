@@ -58,6 +58,13 @@ inputUsername.addEventListener("keypress", (event) => {
 });
 
 searchStories.addEventListener("click", () => {
+
+  if (inputUsername.value.toLowerCase() === currentUser){
+    return;
+  }
+
+  currentUser = inputUsername.value.toLowerCase();
+
   if (inputUsername.value != "" && inputUsername.value.trim() != "") {
     loading.classList.remove("hide");
     loading.classList.add("show");

@@ -10,7 +10,7 @@ const loading = document.querySelector(".loading");
 const contentResult = document.querySelector(".contentResult");
 const noDates = document.querySelector(".no-dates");
 const accountPrivate = document.querySelector(".account-private");
-
+let currentUser = null;
 let isNoStories = false;
 let isPrivate = false;
 
@@ -22,7 +22,15 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 inputUsername.addEventListener("keypress", (event) => {
+
   if (event.keyCode === 13) {
+
+    if (inputUsername.value.toLowerCase() === currentUser){
+      return;
+    }
+
+    currentUser = inputUsername.value.toLowerCase();
+
     if (inputUsername.value != "" && inputUsername.value.trim() != "") {
       loading.classList.remove("hide");
       loading.classList.add("show");
@@ -105,7 +113,6 @@ const getStory = async (inputUsername = "cristiano") => {
 };
 
 const renderStory = (result) => {
-  // const ress = {"data":{"additional_data":{},"count":0,"items":[]}}
 
   if (result.data.items.length === 0) {
     isNoStories = true;
@@ -156,10 +163,7 @@ const renderStory = (result) => {
                     }" class="card-img-top" alt="">
                     <div class="card-body">
                         <p class="card-text">${storyItem.media_format}</p>
-                        <p class="card-text">${convertEpochToTimeZone(
-                          storyItem.taken_at,
-                          timeZone
-                        )}</p>
+                        <p class="card-text">${convertEpochToTimeZone(storyItem.taken_at,timeZone)}</p>
                         <a href="${
                           storyItem.thumbnail_url
                         }" class="btn btn-primary w-100" download> Descargar </a>
@@ -175,7 +179,7 @@ const renderStory = (result) => {
                 <div class="card-body">
                     <video src="${storyItem.video_url}" controls class="card-img-top"></video>
                     <p class="card-text">${storyItem.media_format}</p>
-                    <p class="card-text">${storyItem.media_format}</p>
+                    <p class="card-text">${convertEpochToTimeZone(storyItem.taken_at,timeZone)}</p>
                     <a href="${storyItem.video_url}" class="btn btn-primary w-100" download> Descargar </a>
                 </div>
             </div>
